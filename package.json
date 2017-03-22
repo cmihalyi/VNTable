@@ -2,7 +2,7 @@
   "name": "@venuenext/vntable",
   "version": "1.0.3",
   "description": "venuenext react table component using material-ui",
-  "main": "index.js",
+  "main": "Components/VNTable.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
