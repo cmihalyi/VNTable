@@ -1,13 +1,12 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router'
-import {connect} from 'react-redux'
 import moment from 'moment-timezone'
 import * as Utils from '../Utilities/Utils'
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table'
 import CircularProgress from 'material-ui/CircularProgress'
 import ExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more'
 
-class VNTable extends Component{
+export default class VNTable extends Component{
 
   constructor(props){
     super(props)
@@ -224,9 +223,3 @@ class VNTable extends Component{
 VNTable.contextTypes = {
   router: React.PropTypes.object.isRequired
 };
-
-const mapStateToProps = (state) => {
-  return {}
-}
-
-export default connect(mapStateToProps)(VNTable)
