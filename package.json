@@ -1,6 +1,6 @@
 {
   "name": "@venuenext/vntable",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "venuenext react table component using material-ui",
   "main": "Components/VNTable.js",
   "scripts": {
