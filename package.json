@@ -1,6 +1,6 @@
 {
   "name": "@venuenext/vntable",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "venuenext react table component using material-ui",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,5 @@
     "react-router": "^2.7.0",
     "react-tap-event-plugin": "^2.0.1"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
