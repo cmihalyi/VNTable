@@ -22720,7 +22720,7 @@ var getImageSize = function getImageSize(img, callback) {
 };
 exports.getImageSize = getImageSize;
 
-},{}],"vntable":[function(require,module,exports){
+},{}],"@venuenext/vntable":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {

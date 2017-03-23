@@ -9,7 +9,7 @@ var _materialUiStylesMuiThemeProvider2 = _interopRequireDefault(_materialUiStyle
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-var VnTable = require('vntable');
+var VnTable = require('@venuenext/vntable');
 
 var App = React.createClass({
   displayName: 'App',
@@ -58,7 +58,7 @@ ReactDOM.render(React.createElement(
   React.createElement(App, null)
 ), document.getElementById('app'));
 
-},{"material-ui/styles/MuiThemeProvider":136,"react":undefined,"react-dom":undefined,"vntable":undefined}],2:[function(require,module,exports){
+},{"@venuenext/vntable":undefined,"material-ui/styles/MuiThemeProvider":136,"react":undefined,"react-dom":undefined}],2:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/array/from"), __esModule: true };
 },{"core-js/library/fn/array/from":16}],3:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/object/create"), __esModule: true };
