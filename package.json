@@ -1,9 +1,9 @@
 {
-  "name": "vntable",
-  "version": "1.0.0",
+  "name": "@venuenext/vntable",
+  "version": "1.0.7",
   "description": "VNTable",
   "main": "lib/VnTable.js",
-  "author": "chris",
+  "author": "Chris Mihalyi",
   "homepage": "https://github.com/cmihalyi/VNTable",
   "repository": {
     "type": "git",

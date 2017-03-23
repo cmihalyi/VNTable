@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var VnTable = require('vntable');
+var VnTable = require('@venuenext/vntable');
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 var App = React.createClass({
