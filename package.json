@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "VNTable",
   "main": "lib/VnTable.js",
-  "author": "chris mihalyi",
-  "homepage": "https://github.com/cmihalyi/vntable",
+  "author": "chris",
+  "homepage": "https://github.com/cmihalyi/VNTable",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cmihalyi/vntable.git"
+    "url": "https://github.com/cmihalyi/VNTable.git"
   },
   "bugs": {
-    "url": "https://github.com/cmihalyi/vntable/issues"
+    "url": "https://github.com/cmihalyi/VNTable/issues"
   },
   "dependencies": {
     "classnames": "^2.1.2"
@@ -25,7 +25,12 @@
     "react-dom": "^0.14.0"
   },
   "peerDependencies": {
-    "react": "^0.14.0"
+    "react": "^15.4.2",
+    "react-router": "^2.7.0",
+    "react-dom": "^15.3.1",
+    "material-ui": "^0.16.7",
+    "react-tap-event-plugin": "^2.0.1",
+    "moment-timezone": "^0.5.11"
   },
   "browserify-shim": {
     "react": "global:React"
