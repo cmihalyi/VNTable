@@ -15,20 +15,20 @@ export default class VNTable extends Component{
     }
 
     this.moreIconStyles = {
-      position: "absolute",
-      width: "12px",
-      height: "12px",
-      bottom: "13px"
+      position: 'absolute',
+      width: '12px',
+      height: '12px',
+      bottom: '13px'
     }
 
     this.progress = {
       size: 120,
       style: {
-        top: "100px"
+        top: '100px'
       }
     }
 
-    this.iconColor = "#AFB2B6"
+    this.iconColor = '#AFB2B6'
     this.sortBy = this.sortBy.bind(this)
     this.keyHunter = this.keyHunter.bind(this)
     this.splitKeys = this.splitKeys.bind(this)
@@ -57,11 +57,11 @@ export default class VNTable extends Component{
       tmp.reverse()
     }else{
       switch(typeof tmp[0][column]){
-        case "number":
+        case 'number':
           tmp.sort((a,b) => {return a[column] - b[column]})
           break
-        case "object":
-        case "string":
+        case 'object':
+        case 'string':
           tmp.sort((a,b) => {
             //handles the case for the infinity (null) values in date field
             if(a[column] && b[column]){
@@ -106,7 +106,7 @@ export default class VNTable extends Component{
         {obj.map((column, index) => {
           return (
             <TableHeaderColumn className={(column.className) ? `${column.className}` : `${column.label}`} key={index}>
-              {(column.sortDisable) ? <div>{column.label}</div> : <div className="sortable" onClick={() => this.sortBy((column.key) ? `${column.key}` : `${column.label}`)}><span>{column.label}</span><ExpandMoreIcon style={this.moreIconStyles} color={this.iconColor}/></div>}
+              {(column.sortDisable) ? <div>{column.label}</div> : <div className='sortable' onClick={() => this.sortBy((column.key) ? `${column.key}` : `${column.label}`)}><span>{column.label}</span><ExpandMoreIcon style={this.moreIconStyles} color={this.iconColor}/></div>}
             </TableHeaderColumn>
           )
         })}
@@ -133,50 +133,50 @@ export default class VNTable extends Component{
       }
 
       //if cell is a string
-      if(typeof attributeValue === "string"){
+      if(typeof attributeValue === 'string'){
         //cell is a date string
         if(col.dateFormat){
           if(col.dateFormat.date && col.dateFormat.time){
-            cell = <div><div className="date">{moment(attributeValue).format(col.dateFormat.date)}</div><div className="time sm-txt">{moment.tz(attributeValue, moment.tz.guess()).format(col.dateFormat.time)}</div></div>
+            cell = <div><div className='date'>{moment(attributeValue).format(col.dateFormat.date)}</div><div className='time sm-txt'>{moment.tz(attributeValue, moment.tz.guess()).format(col.dateFormat.time)}</div></div>
           }else{
             cell = moment(attributeValue).format(col.dateFormat.date)
           }
         }
         //cell is an image src string
-        else if(attributeValue.endsWith(".jpg") || attributeValue.endsWith(".png")){
-          cell = <img className="img-fluid" src={attributeValue}/>
+        else if(attributeValue.endsWith('.jpg') || attributeValue.endsWith('.png')){
+          cell = <img className='img-fluid' src={attributeValue}/>
         }
         //cell is just a regular string
         else{
           if(index === 0 && row.published_version === null){
-            cell = <div><div className="sm-txt highlight">Unpublished</div><div>{attributeValue}</div></div>
-          }else if(row.mode === "default" && row.config_type === "default"){
-            cell = <div><div className="sm-txt highlight">Default</div><div>{attributeValue}</div></div>
+            cell = <div><div className='sm-txt highlight'>Unpublished</div><div>{attributeValue}</div></div>
+          }else if(row.mode === 'default' && row.config_type === 'default'){
+            cell = <div><div className='sm-txt highlight'>Default</div><div>{attributeValue}</div></div>
           }
           else{
             cell = attributeValue
           }
         }
       //if cell is a number
-      }else if(typeof attributeValue === "number"){
+      }else if(typeof attributeValue === 'number'){
           cell = attributeValue
       //cell is an object
-      }else if(typeof attributeValue === "object"){
+      }else if(typeof attributeValue === 'object'){
         //empty or null start or end time field
         if (col.dateFormat){
           cell = '∞'
         }
 
       //cell is undefined - most likely use case is when no header is needed but a column will exsist for data
-      }else if(typeof attributeValue === "undefined"){
+      }else if(typeof attributeValue === 'undefined'){
         var tmp = col.url.replace(/\[url\]/, row.id);
 
-        cell = <span onClick={() => {
+        cell = (<span onClick={() => {
             if (col.action) {
               props.dispatch(col.action.func(col.action.param))
             }
             this.context.router.push(tmp)
-          }} className="btn btn-basic btn-blue">{col.cellContent}</span>
+          }} className='btn btn-basic btn-blue'>{col.cellContent}</span>)
 
       }else{
         cell = typeof attributeValue
@@ -187,7 +187,7 @@ export default class VNTable extends Component{
   }
 
   splitKeys(keyObj){
-    return  keyObj.split(".")
+    return  keyObj.split('.')
   }
 
   keyHunter(initObj, keyObj){
@@ -208,7 +208,7 @@ export default class VNTable extends Component{
     const props = this.props
     if(!Utils.isObjectEmpty(props.initialRowSelected)){
       if(row.id === props.initialRowSelected.id){
-        return "selected";
+        return 'selected';
       }
     }
   }
@@ -219,9 +219,9 @@ export default class VNTable extends Component{
 
     if(!Utils.isObjectEmpty(this.state.body)){
       return(
-        <Table className={props.className || ""} onRowSelection={props.onRowClick}>
-          <TableHeader className="table-header" displaySelectAll={false} adjustForCheckbox={false} children={this.headerContents(props.head)} />
-          <TableBody className="table-body" displayRowCheckbox={false} children={this.bodyContents(this.state.body)} />
+        <Table className={props.className || ''} onRowSelection={props.onRowClick}>
+          <TableHeader className='table-header' displaySelectAll={false} adjustForCheckbox={false} children={this.headerContents(props.head)} />
+          <TableBody className='table-body' displayRowCheckbox={false} children={this.bodyContents(this.state.body)} />
         </Table>
       )
     }else{

@@ -22,7 +22,7 @@ export const isNumber = (n) => {
 }
 
 export const isString = (x) => {
-  return Object.prototype.toString.call(x) === "[object String]"
+  return Object.prototype.toString.call(x) === '[object String]'
 }
 
 export const isObjectEmpty = (obj) => {
@@ -76,22 +76,22 @@ export const stringArrayReplace = (s, words) => {
 }
 
 export const invalidateCacheCreation = (file, identifier) => {
-  var prefix = file.split(".")
-  var newFile = ""
+  var prefix = file.split('.')
+  var newFile = ''
   for (var i = 0; i < prefix.length - 1; i++) {
-    newFile += prefix[i] + "."
+    newFile += prefix[i] + '.'
   }
   newFile += identifier
-  newFile += "."
+  newFile += '.'
   newFile += prefix[prefix.length - 1]
   return newFile
 }
 
 export const swapFileType = (file, fileType) => {
-  var prefix = file.split(".")
-  var newFile = ""
+  var prefix = file.split('.')
+  var newFile = ''
   for (var i = 0; i < prefix.length - 1; i++) {
-    newFile += prefix[i] + "."
+    newFile += prefix[i] + '.'
   }
   newFile += fileType
   return newFile
@@ -101,29 +101,29 @@ export const getMonthAsString = (month) => {
 
   switch(month) {
     case 1:
-      return "January"
+      return 'January'
     case 2:
-      return "February"
+      return 'February'
     case 3:
-      return "March"
+      return 'March'
     case 4:
-      return "April"
+      return 'April'
     case 5:
-      return "May"
+      return 'May'
     case 6:
-      return "June"
+      return 'June'
     case 7:
-      return "July"
+      return 'July'
     case 8:
-      return "August"
+      return 'August'
     case 9:
-      return "September"
+      return 'September'
     case 10:
-      return "October"
+      return 'October'
     case 11:
-      return "November"
+      return 'November'
     case 12:
-      return "December"
+      return 'December'
   }
 }
 
