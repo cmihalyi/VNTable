@@ -10,9 +10,7 @@ export default class VNTable extends Component{
 
   constructor(props){
     super(props)
-    this.state = {
-      body: props.body
-    }
+    this.state = {}
 
     this.moreIconStyles = {
       position: 'absolute',
@@ -34,24 +32,10 @@ export default class VNTable extends Component{
     this.splitKeys = this.splitKeys.bind(this)
   }
 
-  // componentWillReceiveProps(nextProps){
-  //   if(this.state.body !== nextProps.body){
-  //     this.setState({
-  //       body: nextProps.body
-  //     })
-  //   }
-  // }
-  //
-  // shouldComponentUpdate(nextProps, nextState){
-  //   if(nextProps.body !== nextState.body){
-  //     return true;
-  //   }else{
-  //     return false
-  //   }
-  // }
-
   sortBy(column){
-    var tmp = this.state.body.slice(0);
+    const props = this.props
+    // var tmp = this.state.body.slice(0);
+    var tmp = props.body.slice(0)
     //figure out sorting algorithm and order.
     if(this.state.sortBy === column){
       tmp.reverse()
@@ -85,9 +69,12 @@ export default class VNTable extends Component{
 
     //update state with new sorted order
     this.setState({
-      body: tmp,
       sortBy: column,
     })
+
+    if(props.onSort){
+      props.onSort(tmp)
+    }
   }
 
   bodyContents(obj){
@@ -203,7 +190,6 @@ export default class VNTable extends Component{
     }
   }
 
-
   initialRowSelected(row){
     const props = this.props
     if(!Utils.isObjectEmpty(props.initialRowSelected)){
@@ -217,11 +203,11 @@ export default class VNTable extends Component{
     const props = this.props
     const columns = this.columns
 
-    if(!Utils.isObjectEmpty(this.state.body)){
+    if(!Utils.isObjectEmpty(props.body)){
       return(
         <Table className={props.className || ''} onRowSelection={props.onRowClick}>
           <TableHeader className='table-header' displaySelectAll={false} adjustForCheckbox={false} children={this.headerContents(props.head)} />
-          <TableBody className='table-body' displayRowCheckbox={false} children={this.bodyContents(this.state.body)} />
+          <TableBody className='table-body' displayRowCheckbox={false} children={this.bodyContents(props.body)} />
         </Table>
       )
     }else{
