@@ -22964,9 +22964,7 @@ var VNTable = (function (_Component) {
     _classCallCheck(this, VNTable);
 
     _get(Object.getPrototypeOf(VNTable.prototype), 'constructor', this).call(this, props);
-    this.state = {
-      body: props.body
-    };
+    this.state = {};
 
     this.moreIconStyles = {
       position: 'absolute',
@@ -22988,26 +22986,12 @@ var VNTable = (function (_Component) {
     this.splitKeys = this.splitKeys.bind(this);
   }
 
-  // componentWillReceiveProps(nextProps){
-  //   if(this.state.body !== nextProps.body){
-  //     this.setState({
-  //       body: nextProps.body
-  //     })
-  //   }
-  // }
-  //
-  // shouldComponentUpdate(nextProps, nextState){
-  //   if(nextProps.body !== nextState.body){
-  //     return true;
-  //   }else{
-  //     return false
-  //   }
-  // }
-
   _createClass(VNTable, [{
     key: 'sortBy',
     value: function sortBy(column) {
-      var tmp = this.state.body.slice(0);
+      var props = this.props;
+      // var tmp = this.state.body.slice(0);
+      var tmp = props.body.slice(0);
       //figure out sorting algorithm and order.
       if (this.state.sortBy === column) {
         tmp.reverse();
@@ -23043,9 +23027,12 @@ var VNTable = (function (_Component) {
 
       //update state with new sorted order
       this.setState({
-        body: tmp,
         sortBy: column
       });
+
+      if (props.onSort) {
+        props.onSort(tmp);
+      }
     }
   }, {
     key: 'bodyContents',
@@ -23253,12 +23240,12 @@ var VNTable = (function (_Component) {
       var props = this.props;
       var columns = this.columns;
 
-      if (!Utils.isObjectEmpty(this.state.body)) {
+      if (!Utils.isObjectEmpty(props.body)) {
         return _react2['default'].createElement(
           _materialUiTable.Table,
           { className: props.className || '', onRowSelection: props.onRowClick },
           _react2['default'].createElement(_materialUiTable.TableHeader, { className: 'table-header', displaySelectAll: false, adjustForCheckbox: false, children: this.headerContents(props.head) }),
-          _react2['default'].createElement(_materialUiTable.TableBody, { className: 'table-body', displayRowCheckbox: false, children: this.bodyContents(this.state.body) })
+          _react2['default'].createElement(_materialUiTable.TableBody, { className: 'table-body', displayRowCheckbox: false, children: this.bodyContents(props.body) })
         );
       } else {
         return _react2['default'].createElement(_materialUiCircularProgress2['default'], { size: this.progress.size, style: this.progress.style.top });
