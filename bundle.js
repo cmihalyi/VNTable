@@ -23188,9 +23188,12 @@ var VNTable = (function (_Component) {
                   'span',
                   { onClick: function () {
                       if (col.action) {
-                        props.dispatch(col.action.func(col.action.param));
+
+                        // props.dispatch(col.action.func(col.action.param))
+                        if (props.onLinkClick) {
+                          props.onLinkClick(tmp);
+                        }
                       }
-                      _this3.context.router.push(tmp);
                     }, className: 'btn btn-basic btn-blue' },
                   col.cellContent
                 );
@@ -23257,10 +23260,6 @@ var VNTable = (function (_Component) {
 })(_react.Component);
 
 exports['default'] = VNTable;
-
-VNTable.contextTypes = {
-  router: _react2['default'].PropTypes.object.isRequired
-};
 module.exports = exports['default'];
 
 },{"./utilities/utils":263,"material-ui/CircularProgress":141,"material-ui/Table":153,"material-ui/svg-icons/navigation/expand-more":163,"moment-timezone":171,"react":undefined,"react-router":214}]},{},[]);
