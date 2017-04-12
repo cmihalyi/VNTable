@@ -23187,12 +23187,8 @@ var VNTable = (function (_Component) {
                 cell = _react2['default'].createElement(
                   'span',
                   { onClick: function () {
-                      if (col.action) {
-
-                        // props.dispatch(col.action.func(col.action.param))
-                        if (props.onLinkClick) {
-                          props.onLinkClick(tmp);
-                        }
+                      if (props.onLinkClick) {
+                        props.onLinkClick(tmp);
                       }
                     }, className: 'btn btn-basic btn-blue' },
                   col.cellContent
