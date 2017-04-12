@@ -159,14 +159,10 @@ export default class VNTable extends Component{
         var tmp = col.url.replace(/\[url\]/, row.id);
 
         cell = (<span onClick={() => {
-            if (col.action) {
-
-              // props.dispatch(col.action.func(col.action.param))
-              if(props.onLinkClick){
-                props.onLinkClick(tmp)
-              }
-            }
-          }} className='btn btn-basic btn-blue'>{col.cellContent}</span>)
+          if(props.onLinkClick){
+            props.onLinkClick(tmp)
+          }
+        }} className='btn btn-basic btn-blue'>{col.cellContent}</span>)
 
       }else{
         cell = typeof attributeValue
