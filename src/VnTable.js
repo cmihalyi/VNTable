@@ -21,24 +21,37 @@ export default class VNTable extends Component{
       bottom: "13px"
     }
 
-    this.iconColor = "#AFB2B6"
+    this.progress = {
+      size: 120,
+      style: {
+        top: "100px"
+      }
+    }
 
+    this.iconColor = "#AFB2B6"
     this.sortBy = this.sortBy.bind(this)
     this.keyHunter = this.keyHunter.bind(this)
     this.splitKeys = this.splitKeys.bind(this)
   }
 
-  componentWillReceiveProps(nextProps){
-    if(this.state.body !== nextProps.body){
-      this.setState({
-        body: nextProps.body
-      })
-    }
-  }
+  // componentWillReceiveProps(nextProps){
+  //   if(this.state.body !== nextProps.body){
+  //     this.setState({
+  //       body: nextProps.body
+  //     })
+  //   }
+  // }
+  //
+  // shouldComponentUpdate(nextProps, nextState){
+  //   if(nextProps.body !== nextState.body){
+  //     return true;
+  //   }else{
+  //     return false
+  //   }
+  // }
 
   sortBy(column){
     var tmp = this.state.body.slice(0);
-
     //figure out sorting algorithm and order.
     if(this.state.sortBy === column){
       tmp.reverse()
@@ -80,7 +93,7 @@ export default class VNTable extends Component{
   bodyContents(obj){
     const props = this.props
     return (obj.map((row, index) => {
-      return (<TableRow key={index} className={this.initialRowSelected(row)}>
+      return (<TableRow key={row.id} className={this.initialRowSelected(row)}>
         {this.bodyCellContents(row)}
       </TableRow>)
     }))
@@ -193,12 +206,11 @@ export default class VNTable extends Component{
 
   initialRowSelected(row){
     const props = this.props
-
-    // if(!Utils.isObjectEmpty(props.configuration)){
-      if(row.id === props.initialRowSelected){
+    if(!Utils.isObjectEmpty(props.initialRowSelected)){
+      if(row.id === props.initialRowSelected.id){
         return "selected";
       }
-    // }
+    }
   }
 
   render() {
@@ -214,7 +226,7 @@ export default class VNTable extends Component{
       )
     }else{
       return(
-        <CircularProgress size={120} style={{top: "100px"}}/>
+        <CircularProgress size={this.progress.size} style={this.progress.style.top}/>
       )
     }
   }
