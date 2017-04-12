@@ -160,9 +160,12 @@ export default class VNTable extends Component{
 
         cell = (<span onClick={() => {
             if (col.action) {
-              props.dispatch(col.action.func(col.action.param))
+
+              // props.dispatch(col.action.func(col.action.param))
+              if(props.onLinkClick){
+                props.onLinkClick(tmp)
+              }
             }
-            this.context.router.push(tmp)
           }} className='btn btn-basic btn-blue'>{col.cellContent}</span>)
 
       }else{
@@ -217,7 +220,3 @@ export default class VNTable extends Component{
     }
   }
 }
-
-VNTable.contextTypes = {
-  router: React.PropTypes.object.isRequired
-};
