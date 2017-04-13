@@ -211,7 +211,7 @@ export default class VNTable extends Component{
       )
     }else{
       return(
-        <CircularProgress size={this.progress.size} style={this.progress.style.top}/>
+        <CircularProgress size={this.progress.size} style={this.progress.style}/>
       )
     }
   }

@@ -42,6 +42,23 @@ var VnTable = require('vntable');
 
 * __DOCUMENT PROPERTIES HERE__
 
+`className` - STR - add a class to the component
+`head={columns}` -
+`body={data}`
+`preSortColumn={columns[1]}`
+`initialRowSelected={data[0]}`
+
+| Properties        | Type          | Description
+| ----------------- |:-------------:| -----------
+| className         | str           | add class name to table for styling purposes
+| head              | array         | data object for the headers of the table
+| body              | array         | data object for the content rows of the table
+| preSortColumn     | obj           | object for the column you would like the table sorted by on mounting
+| initialRowSelected| obj           | object for the row you would like selected on mount
+| onRowClick        | function      | listener for row click
+| onLinkClick       | function      | listener for link click
+
+
 ### Notes
 
 __ADDITIONAL USAGE NOTES__
@@ -58,4 +75,3 @@ To build, watch and serve the examples (which will also watch the component sour
 __PUT LICENSE HERE__
 
 Copyright (c) 2017 chris mihalyi.
-
