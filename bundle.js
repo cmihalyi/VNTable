@@ -23247,7 +23247,7 @@ var VNTable = (function (_Component) {
           _react2['default'].createElement(_materialUiTable.TableBody, { className: 'table-body', displayRowCheckbox: false, children: this.bodyContents(props.body) })
         );
       } else {
-        return _react2['default'].createElement(_materialUiCircularProgress2['default'], { size: this.progress.size, style: this.progress.style.top });
+        return _react2['default'].createElement(_materialUiCircularProgress2['default'], { size: this.progress.size, style: this.progress.style });
       }
     }
   }]);

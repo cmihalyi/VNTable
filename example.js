@@ -203,7 +203,6 @@ var App = React.createClass({
 				body: data,
 				preSortColumn: columns[1],
 				initialRowSelected: data[0]
-
 			})
 		);
 	}
