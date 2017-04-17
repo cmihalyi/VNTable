@@ -1,6 +1,6 @@
 {
   "name": "@venuenext/vntable",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "VNTable",
   "main": "lib/VnTable.js",
   "author": "Chris Mihalyi",
