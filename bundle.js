@@ -22966,6 +22966,10 @@ var VNTable = (function (_Component) {
     _get(Object.getPrototypeOf(VNTable.prototype), 'constructor', this).call(this, props);
     this.state = {};
 
+    if (props.preSortColumn.key) {
+      this.state.sortBy = props.preSortColumn.key;
+    }
+
     this.moreIconStyles = {
       position: 'absolute',
       width: '12px',
@@ -22984,6 +22988,7 @@ var VNTable = (function (_Component) {
     this.sortBy = this.sortBy.bind(this);
     this.keyHunter = this.keyHunter.bind(this);
     this.splitKeys = this.splitKeys.bind(this);
+    this.buttonHandle = this.buttonHandle.bind(this);
   }
 
   _createClass(VNTable, [{
