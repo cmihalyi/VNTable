@@ -12,10 +12,6 @@ export default class VNTable extends Component{
     super(props)
     this.state = {}
 
-    if(props.preSortColumn){
-      this.state.sortBy = props.preSortColumn.key
-    }
-
     this.moreIconStyles = {
       position: 'absolute',
       width: '12px',
@@ -34,6 +30,14 @@ export default class VNTable extends Component{
     this.sortBy = this.sortBy.bind(this)
     this.keyHunter = this.keyHunter.bind(this)
     this.splitKeys = this.splitKeys.bind(this)
+  }
+
+  componentDidMount(){
+    const props = this.props
+
+    if(props.preSortColumn){
+      this.sortBy(props.preSortColumn.key)
+    }
   }
 
   sortBy(column){
