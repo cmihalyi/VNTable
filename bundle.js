@@ -22987,15 +22987,6 @@ var VNTable = (function (_Component) {
   }
 
   _createClass(VNTable, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var props = this.props;
-
-      if (props.preSortColumn) {
-        this.sortBy(props.preSortColumn.key);
-      }
-    }
-  }, {
     key: 'sortBy',
     value: function sortBy(column) {
       var props = this.props;
