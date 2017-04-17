@@ -208,7 +208,6 @@ var App = React.createClass({
           className='workspace-grey-table'
           head={columns}
           body={data}
-					preSortColumn={columns[1]}
 					initialRowSelected={data[0]}
 				/>
 			</div>

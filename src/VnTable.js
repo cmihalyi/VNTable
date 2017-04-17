@@ -32,14 +32,6 @@ export default class VNTable extends Component{
     this.splitKeys = this.splitKeys.bind(this)
   }
 
-  componentDidMount(){
-    const props = this.props
-
-    if(props.preSortColumn){
-      this.sortBy(props.preSortColumn.key)
-    }
-  }
-
   sortBy(column){
     const props = this.props
     // var tmp = this.state.body.slice(0);
