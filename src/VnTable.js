@@ -10,8 +10,10 @@ export default class VNTable extends Component{
 
   constructor(props){
     super(props)
-    this.state = {
-      sortBy = props.preSortColumn.key || ""
+    this.state = {}
+
+    if(props.preSortColumn.key){
+      this.state.sortBy = props.preSortColumn.key
     }
 
     this.moreIconStyles = {
